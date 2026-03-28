@@ -18,14 +18,14 @@ export default function Navbar() {
           <Image
             src="/images/logo3.png"
             alt="LexiGuard"
-            width={40} // smaller for mobile
+            width={40}
             height={20}
             className="object-contain hover:scale-110 transition"
           />
         </Link>
 
         {/* Menu (VISIBLE ON MOBILE TOO) */}
-        <div className="flex items-center gap-2 md:gap-10 overflow-x-auto whitespace-nowrap text-[13px] md:text-[15px] font-medium text-gray-700 scrollbar-hide">
+        <div className="flex items-center gap-5 md:gap-10 overflow-x-auto whitespace-nowrap text-[13px] md:text-[15px] font-medium text-gray-700 scrollbar-hide">
 
           {/* Features */}
           <div
@@ -82,9 +82,10 @@ export default function Navbar() {
                 </div>
               )}
             </div>
-            
           </div>
-           <Link href="#" className="hover:text-[#B5A491]">
+
+          {/* Contact (DESKTOP ONLY) */}
+          <Link href="#" className="hover:text-[#B5A491] hidden md:block">
             Contact
           </Link>
         </div>
@@ -141,6 +142,8 @@ export default function Navbar() {
           >
             Get Started
           </Link>
+
+          {/* ❌ Contact removed for mobile */}
         </div>
       )}
     </nav>
