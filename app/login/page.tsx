@@ -19,9 +19,15 @@ export default function LoginPage() {
       alert(`Login Success ✅\nWelcome ${user.displayName}`);
       router.push("/dashboard");
 
-    } catch (error) {
-      console.error("Google Login Error:", error.message);
-      alert("Login Failed ❌");
+    } catch (error: unknown) {
+      // Type guard for unknown error
+      if (error instanceof Error) {
+        console.error("Google Login Error:", error.message);
+        alert(`Login Failed ❌\n${error.message}`);
+      } else {
+        console.error("Google Login Error:", error);
+        alert("Login Failed ❌");
+      }
     }
   };
 
@@ -30,7 +36,7 @@ export default function LoginPage() {
 
       {/* 🔙 Back Button */}
       <button
-        onClick={() => router.back()}
+        onClick={() => router.push("/")} // Go home on back
         className="absolute top-6 left-6 flex items-center gap-2 text-gray-600 hover:text-[#B5A491] transition"
       >
         <ArrowLeft size={20} />

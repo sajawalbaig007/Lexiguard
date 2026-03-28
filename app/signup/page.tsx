@@ -19,9 +19,15 @@ export default function SignupPage() {
       alert(`Signup Success 🎉\nWelcome ${user.displayName}`);
       router.push("/dashboard");
 
-    } catch (error) {
-      console.error("Google Signup Error:", error.message);
-      alert("Signup Failed ❌");
+    } catch (error: unknown) {
+      // Type-safe error handling
+      if (error instanceof Error) {
+        console.error("Google Signup Error:", error.message);
+        alert(`Signup Failed ❌\n${error.message}`);
+      } else {
+        console.error("Google Signup Error:", error);
+        alert("Signup Failed ❌");
+      }
     }
   };
 
@@ -30,7 +36,7 @@ export default function SignupPage() {
 
       {/* 🔙 Back Button */}
       <button
-        onClick={() => router.back()}
+        onClick={() => router.push("/")} // Go home instead of router.back()
         className="absolute top-6 left-6 flex items-center gap-2 text-gray-600 hover:text-[#B5A491] transition"
       >
         <ArrowLeft size={20} />
