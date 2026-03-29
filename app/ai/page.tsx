@@ -113,23 +113,28 @@ export default function Page() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
-      <h1 className="text-4xl font-bold text-center mb-8">
+    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 p-6">
+      <h1 className="text-4xl font-bold text-center mb-8 text-gray-900 dark:text-gray-100">
         LexiGuard Contracts ⚖️
       </h1>
 
       {/* STEP 1 */}
       {step === 1 && (
-        <div className="max-w-3xl mx-auto bg-white p-6 rounded-xl shadow">
-          <button onClick={handleBack}>← Back</button>
+        <div className="max-w-3xl mx-auto bg-white dark:bg-gray-800 p-6 rounded-xl shadow">
+          <button
+            onClick={handleBack}
+            className="text-gray-700 dark:text-gray-200 mb-4"
+          >
+            ← Back
+          </button>
 
-          <h2 className="text-2xl text-center mb-6">
+          <h2 className="text-2xl text-center mb-6 text-gray-900 dark:text-gray-100">
             Generate Your Contract
           </h2>
 
           {/* Contract Type */}
           <select
-            className="border p-3 rounded w-full mb-6"
+            className="border p-3 rounded w-full mb-6 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
             value={type}
             onChange={(e) => {
               setType(e.target.value as ContractType);
@@ -145,7 +150,7 @@ export default function Page() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {contractFields[type].map((field) => (
               <div key={field.name} className="flex flex-col">
-                <label className="text-sm font-semibold mb-1">
+                <label className="text-sm font-semibold mb-1 text-gray-900 dark:text-gray-200">
                   {field.label}
                 </label>
 
@@ -153,14 +158,14 @@ export default function Page() {
                   <textarea
                     name={field.name}
                     onChange={handleChange}
-                    className="border p-2 rounded"
+                    className="border p-2 rounded bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
                   />
                 ) : (
                   <input
                     type={field.type || "text"}
                     name={field.name}
                     onChange={handleChange}
-                    className="border p-2 rounded"
+                    className="border p-2 rounded bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
                   />
                 )}
               </div>
@@ -169,7 +174,7 @@ export default function Page() {
 
           <button
             onClick={generate}
-            className="mt-6 w-full bg-black text-white py-3 rounded"
+            className="mt-6 w-full bg-black dark:bg-amber-500 text-white py-3 rounded hover:opacity-90 transition"
           >
             Generate Contract 🚀
           </button>
@@ -180,11 +185,16 @@ export default function Page() {
       {step === 2 && (
         <div className="max-w-5xl mx-auto">
           <div className="flex gap-4 mb-4">
-            <button onClick={handleBack}>← Back</button>
+            <button
+              onClick={handleBack}
+              className="text-gray-700 dark:text-gray-200"
+            >
+              ← Back
+            </button>
 
             <button
               onClick={downloadContract}
-              className="bg-green-600 text-white px-4 py-2 rounded"
+              className="bg-green-600 text-white px-4 py-2 rounded hover:opacity-90 transition"
             >
               Download PDF
             </button>
@@ -194,10 +204,11 @@ export default function Page() {
           <div className="flex justify-center">
             <div
               id="contract-preview"
-              className="bg-white p-10 shadow-lg"
+              className="bg-white dark:bg-gray-800 p-10 shadow-lg"
               style={{
                 width: "210mm",
                 minHeight: "297mm",
+                color: "#111", // fallback text color
               }}
               dangerouslySetInnerHTML={{ __html: contract }}
             />
