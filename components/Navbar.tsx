@@ -12,7 +12,7 @@ export default function Navbar() {
   return (
 <nav className="fixed top-4 w-full z-50 px-4 md:px-20">
   <div className="max-w-7xl mx-auto 
-                  bg-white dark:bg-gray-900 
+                  bg-white
                   border dark:border-gray-700 
                   shadow-md rounded-2xl px-6 h-16 md:h-20 
                   flex items-center justify-between">
@@ -35,7 +35,7 @@ export default function Navbar() {
         onMouseEnter={() => setFeatureOpen(true)}
         onMouseLeave={() => setFeatureOpen(false)}
       >
-        <div className="flex items-center gap-1 cursor-pointer hover:text-amber-400">
+        <div className="flex items-center gap-1 cursor-pointer hover:text-[#B5A491]">
           Features <ChevronDown size={16} />
         </div>
         {featureOpen && (
@@ -52,7 +52,7 @@ export default function Navbar() {
         )}
       </div>
 
-      <Link href="#" className="hover:text-amber-400">Pricing</Link>
+      <Link href="#" className="hover:text-[#B5A491]">Pricing</Link>
 
       {/* Resources */}
       <div
@@ -60,7 +60,7 @@ export default function Navbar() {
         onMouseEnter={() => setResourceOpen(true)}
         onMouseLeave={() => setResourceOpen(false)}
       >
-        <div className="flex items-center gap-1 cursor-pointer hover:text-amber-400">
+        <div className="flex items-center gap-1 cursor-pointer hover:text-[#B5A491]">
           Resources <ChevronDown size={16} />
         </div>
         {resourceOpen && (
@@ -77,14 +77,14 @@ export default function Navbar() {
         )}
       </div>
 
-      <Link href="#" className="hover:text-amber-400">Contact</Link>
+      <Link href="#" className="hover:text-[#B5A491]">Contact</Link>
     </div>
 
     {/* Desktop Right */}
     <div className="hidden md:flex items-center gap-5">
       <Link
         href="/ai"
-        className="flex items-center gap-2 bg-gradient-to-r from-amber-300 to-amber-500 text-white px-5 py-2 rounded-full hover:scale-105 transition"
+        className="flex items-center gap-2 bg-[#B5A491] text-white px-5 py-2 rounded-full hover:scale-105 transition"
       >
         <Sparkles size={18} />
         Connect
@@ -92,7 +92,7 @@ export default function Navbar() {
 
       <Link href="/login" className="text-gray-900 dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-100">Login</Link>
 
-      <Link href="/signup" className="bg-amber-400 text-white px-5 py-2 rounded-full hover:opacity-90 transition">
+      <Link href="/signup" className="bg-[#B5A491] text-white px-5 py-2 rounded-full hover:opacity-90 transition">
         Get Started
       </Link>
     </div>
