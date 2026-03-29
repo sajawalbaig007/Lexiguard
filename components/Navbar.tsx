@@ -155,17 +155,17 @@ export default function Navbar() {
       <div className="pt-4 border-t border-gray-200 dark:border-gray-700 flex flex-col gap-3">
         <Link
           href="/ai"
-          className="flex items-center justify-center gap-2 bg-gradient-to-r from-amber-300 to-amber-500 text-white px-5 py-2 rounded-full"
+          className="flex items-center justify-center gap-2 bg-[#B5A491] text-white px-5 py-2 rounded-full"
         >
           <Sparkles size={18} />
-          Connect with AI
+          Connect 
         </Link>
 
         <Link href="/login" className="text-gray-900 dark:text-gray-200 text-center">Login</Link>
 
         <Link
           href="/signup"
-          className="bg-amber-400 text-white text-center px-5 py-2 rounded-full hover:opacity-90 transition"
+          className="bg-bg-[#B5A491] text-white text-center px-5 py-2 rounded-full hover:opacity-90 transition"
         >
           Get Started
         </Link>
